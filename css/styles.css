@@ -1,0 +1,74 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    background-color: blanchedalmond;
+}
+
+.title {
+    text-align: center;
+    /* font-weight: 400; */
+    font-weight: bold;
+    font-size: 50px;
+    color: #fcfcfc;
+}
+
+.page-title h5 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+    color: #fcfcfc;
+    margin-top: 40px;
+}
+.add-box {
+    max-width: 700px;
+    background-color: #ffffff;
+    margin: 15px auto;
+    padding: 30px;
+    border-radius: 10px;
+    vertical-align: middle;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.add-question,
+.btn {
+    padding: 5px 15px;
+}
+
+.cat-label {
+    margin-right: 30px;
+}
+.correct-answer .cat-label {
+    margin-right: 70px;
+}
+.correct-answer .radio-inline {
+    margin-inline: 32px;
+}
+.main-box {
+    background-color: #f0f2f5;
+}
+textarea {
+    resize: none;
+}
+
+/* Customization */
+
+.bg-dark {
+    background-color: #0b9c78 !important;
+}
+
+.radio-inline {
+    margin-right: 5px !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 30px;
+}
+.page-title {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+.page-title h5 {
+    color: #050505 !important;
+    font-weight: bold;
+    text-transform: uppercase;
+}

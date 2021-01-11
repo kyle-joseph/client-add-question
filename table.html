@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Quiz App</title>
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="./css/table.css" />
+        <script
+            src="https://kit.fontawesome.com/3382ceab91.js"
+            crossorigin="anonymous"
+        ></script>
+        <!-- <link rel="stylesheet" href="./css/bootstrap.css" /> -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            rel="stylesheet"
+        />
+
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body class="main-box">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">NDIA</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="table.html">Questions</a>
+                        </li>
+                        <li class="nav-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tabs -->
+        <div class="container">
+            <nav>
+                <div
+                    class="nav nav-tabs"
+                    id="nav-tab"
+                    role="tablist"
+                    style="margin-top: 100px"
+                >
+                    <a
+                        class="nav-item nav-link active"
+                        id="nav-earthquake-tab"
+                        data-toggle="tab"
+                        href="#nav-earthquake"
+                        role="tab"
+                        aria-controls="nav-home"
+                        aria-selected="true"
+                        onclick="fetchDataByCategory('Earthquake')"
+                        >Earthquake</a
+                    >
+                    <a
+                        class="nav-item nav-link"
+                        id="nav-flashflood-tab"
+                        data-toggle="tab"
+                        href="#nav-flashflood"
+                        role="tab"
+                        aria-controls="nav-profile"
+                        aria-selected="false"
+                        onclick="fetchDataByCategory('Flashflood')"
+                        >Flashflood</a
+                    >
+                    <a
+                        class="nav-item nav-link"
+                        id="nav-typhoon-tab"
+                        data-toggle="tab"
+                        href="#nav-typhoon"
+                        role="tab"
+                        aria-controls="nav-contact"
+                        aria-selected="false"
+                        onclick="fetchDataByCategory('Typhoon')"
+                        >Typhoon</a
+                    >
+                    <a
+                        class="nav-item nav-link"
+                        id="nav-tsunami-tab"
+                        data-toggle="tab"
+                        href="#nav-tsunami"
+                        role="tab"
+                        aria-controls="nav-contact"
+                        aria-selected="false"
+                        onclick="fetchDataByCategory('Tsunami')"
+                        >Tsunami</a
+                    >
+                    <a
+                        class="nav-item nav-link"
+                        id="nav-volcanic-tab"
+                        data-toggle="tab"
+                        href="#nav-volcanic"
+                        role="tab"
+                        aria-controls="nav-contact"
+                        aria-selected="false"
+                        onclick="fetchDataByCategory('Volcanic Eruption')"
+                        >Volcanic Eruption</a
+                    >
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div
+                    class="tab-pane fade show active"
+                    id="nav-earthquake"
+                    role="tabpanel"
+                    aria-labelledby="nav-home-tab"
+                >
+                    <br />
+                    <h2>Earthquake</h2>
+
+                    <table class="table table-striped">
+                        <thead class="heading">
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div
+                    class="tab-pane fade"
+                    id="nav-flashflood"
+                    role="tabpanel"
+                    aria-labelledby="nav-profile-tab"
+                >
+                    <br />
+                    <h2>Flashflood</h2>
+
+                    <table class="table table-striped">
+                        <thead class="heading">
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div
+                    class="tab-pane fade"
+                    id="nav-typhoon"
+                    role="tabpanel"
+                    aria-labelledby="nav-contact-tab"
+                >
+                    <br />
+                    <h2>Typhoon</h2>
+
+                    <table class="table table-striped">
+                        <thead class="heading">
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div
+                    class="tab-pane fade"
+                    id="nav-tsunami"
+                    role="tabpanel"
+                    aria-labelledby="nav-contact-tab"
+                >
+                    <br />
+                    <h2>Tsunami</h2>
+
+                    <table class="table table-striped">
+                        <thead class="heading">
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div
+                    class="tab-pane fade"
+                    id="nav-volcanic"
+                    role="tabpanel"
+                    aria-labelledby="nav-contact-tab"
+                >
+                    <br />
+                    <h2>Volcanic Eruption</h2>
+
+                    <table class="table table-striped">
+                        <thead class="heading">
+                            <tr>
+                                <th>Question</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="container"></div>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./js/table.js"></script>
+    </body>
+</html>

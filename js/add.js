@@ -111,26 +111,26 @@ function insertData() {
     console.log(correct);
     console.log(category);
 
-    // db.collection("questions")
-    //     .add({
-    //         question: question.value,
-    //         a: a.value,
-    //         b: b.value,
-    //         c: c.value,
-    //         d: d.value,
-    //         correct: correct,
-    //         category: category,
-    //     })
-    //     .then(function (docRef) {
-    //         console.log("Document written with ID: ", docRef.id);
-    //         $(".msgSuccess").show();
-    //     })
-    //     .catch(function (error) {
-    //         console.error("Error adding document: ", error);
-    //         $(".msgError").show();
-    //     });
+    db.collection("questions")
+        .add({
+            question: question.value,
+            a: a.value,
+            b: b.value,
+            c: c.value,
+            d: d.value,
+            correct: correct,
+            category: category,
+        })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+            $(".msgSuccess").show();
+        })
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+            $(".msgError").show();
+        });
 
-    $(".msgSuccess").show();
+    // $(".msgSuccess").show();
     clearInputs();
     clearCategory();
     clearCorrect();

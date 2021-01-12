@@ -16,7 +16,7 @@ h2 {
     min-width: 400px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
 }
 .table .heading {
     background-color: #0b9c78;
@@ -55,6 +55,7 @@ h2 {
 
 .radio-inline {
     margin-right: 10px !important;
+    font-weight: normal !important;
 }
 
 .navbar-brand {
@@ -64,4 +65,35 @@ h2 {
 
 .fas {
     margin: 0 5px;
+}
+
+.nav-table {
+    background: white;
+    padding: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Edit Question */
+.add-box {
+    max-width: 700px;
+    background-color: #ffffff;
+    margin: 15px auto;
+    padding: 30px;
+    border-radius: 10px;
+    vertical-align: middle;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.add-question,
+.btn {
+    padding: 5px 15px;
+}
+.correct-answer .cat-label {
+    margin-right: 20px;
+}
+
+.add-box label {
+    font-weight: bold;
 }

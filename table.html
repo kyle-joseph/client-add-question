@@ -37,7 +37,7 @@
     <body class="main-box">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">NDIA</a>
+                <a class="navbar-brand" href="index.html">NDIA</a>
                 <button
                     class="navbar-toggler"
                     type="button"
@@ -64,14 +64,54 @@
         </nav>
 
         <!-- Tabs -->
-        <div class="container">
-            <nav>
-                <div
-                    class="nav nav-tabs"
-                    id="nav-tab"
-                    role="tablist"
-                    style="margin-top: 100px"
+        <div class="container nav-table" style="margin-top: 80px">
+            <div
+                class="alert alert-success alert-dismissible fade show mx-auto msgSuccess"
+                role="alert"
+            >
+                <p>Question successfully updated.</p>
+                <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    onclick="hideAlert()"
                 >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div
+                class="alert alert-danger alert-dismissible fade show mx-auto msgError"
+                role="alert"
+            >
+                <p>
+                    An error occurred while updating the question. Please try
+                    again.
+                </p>
+                <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    onclick="hideAlert()"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div
+                class="alert alert-success alert-dismissible fade show mx-auto msgDeleted"
+                role="alert"
+            >
+                <p>Question successfully deleted.</p>
+                <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    onclick="hideAlert()"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <a
                         class="nav-item nav-link active"
                         id="nav-earthquake-tab"
@@ -232,8 +272,215 @@
                 </div>
             </div>
         </div>
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Edit Question
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="add-form">
+                        <div class="modal-body">
+                            <div class="add-box">
+                                <div class="container">
+                                    <label class="cat-label"
+                                        >Choose Category</label
+                                    >
+                                    <div class="choose-cat">
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                id="category"
+                                                checked
+                                                value="Earthquake"
+                                            />
+                                            Earthquake </label
+                                        ><br />
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                id="category"
+                                                value="Flashflood"
+                                            />
+                                            Flashflood </label
+                                        ><br />
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                id="category"
+                                                value="Typhoon"
+                                            />
+                                            Typhoon </label
+                                        ><br />
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                id="category"
+                                                value="Tsunami"
+                                            />
+                                            Tsunami </label
+                                        ><br />
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="category"
+                                                id="category"
+                                                value="Volcanic Eruption"
+                                            />
+                                            Volcanic Eruption
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-box">
+                                <div class="container">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1"
+                                            >Question</label
+                                        >
+                                        <textarea
+                                            class="form-control"
+                                            id="question"
+                                            rows="4"
+                                            placeholder="Enter question"
+                                            name="question"
+                                            required
+                                        ></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"
+                                            >Option A</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="A"
+                                            placeholder="Enter option"
+                                            name="A"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"
+                                            >Option B</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="B"
+                                            placeholder="Enter option"
+                                            name="B"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"
+                                            >Option C</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="C"
+                                            placeholder="Enter option"
+                                            name="C"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"
+                                            >Option D</label
+                                        >
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="D"
+                                            placeholder="Enter option"
+                                            name="D"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="correct-answer">
+                                        <label class="cat-label"
+                                            >Correct Answer</label
+                                        >
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="correct"
+                                                id="correct"
+                                                checked
+                                                value="A"
+                                            />
+                                            A
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="correct"
+                                                id="correct"
+                                                value="B"
+                                            />
+                                            B
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="correct"
+                                                id="correct"
+                                                value="C"
+                                            />
+                                            C
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input
+                                                type="radio"
+                                                name="correct"
+                                                id="correct"
+                                                value="D"
+                                            />
+                                            D
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-dismiss="modal"
+                            >
+                                Close
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-        <div class="container"></div>
         <script
             src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

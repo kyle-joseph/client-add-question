@@ -83,6 +83,11 @@ function clearCorrect() {
         }
     }
 }
+function clearAll() {
+    clearInputs();
+    clearCategory();
+    clearCorrect();
+}
 
 function insertData() {
     category = getCategory();
@@ -130,8 +135,5 @@ function insertData() {
             $(".msgError").show();
         });
 
-    // $(".msgSuccess").show();
-    clearInputs();
-    clearCategory();
-    clearCorrect();
+    clearAll();
 }
